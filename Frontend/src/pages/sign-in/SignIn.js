@@ -1,13 +1,16 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { login } from "../../redux/userSlice";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
 
   const logInUser = (e) => {
     const body = { email, password };
     e.preventDefault();
-    console.log(body);
+    dispatch(login(body));
   };
 
   return (

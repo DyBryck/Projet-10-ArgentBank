@@ -4,6 +4,13 @@ import logo from "../../images/argentBankLogo.png";
 import "../../styles/main.css";
 
 const Header = () => {
+  const isSignIn = localStorage.getItem("token");
+
+  const signOut = () => {
+    localStorage.removeItem("token");
+    window.location.href = "/sign-in";
+  };
+
   return (
     <header>
       <nav className="main-nav">
@@ -16,9 +23,29 @@ const Header = () => {
           <h1 className="sr-only">Argent Bank</h1>
         </Link>
         <div>
-          <Link to={"/sign-in"} className="main-nav-item" href="./sign-in.html">
-            <i className="fa fa-user-circle"></i> Sign In
-          </Link>
+          {isSignIn ? (
+            <>
+              <Link
+                to={"/user"}
+                className="main-nav-item"
+                href="./sign-in.html"
+              >
+                <i className="fa fa-user-circle"></i> User Name
+              </Link>
+              <button className="main-nav-item" onClick={signOut}>
+                <i className="fa fa-sign-out"></i>
+                Sign Out
+              </button>
+            </>
+          ) : (
+            <Link
+              to={"/sign-in"}
+              className="main-nav-item"
+              href="./sign-in.html"
+            >
+              <i className="fa fa-user-circle"></i> Sign In
+            </Link>
+          )}
         </div>
       </nav>
     </header>

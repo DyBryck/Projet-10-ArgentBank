@@ -1,0 +1,215 @@
+[
+  {
+    "id": "0",
+    "name": "Argent Bank Checking (x8349)",
+    "type": "Checking",
+    "balance": 2082.79,
+    "transactions": [
+      {
+        "date": "27/02/20",
+        "description": "Golden Sun Bakery",
+        "amount": 8.0,
+        "balance": 298,
+        "type": "Electronic",
+        "category": "Food",
+        "note": "Lorem ipsum"
+      },
+      {
+        "date": "27/02/20",
+        "description": "Golden Sun Bakery",
+        "amount": 8.0,
+        "balance": 298,
+        "type": "Electronic",
+        "category": "Food",
+        "note": "Lorem ipsum"
+      },
+      {
+        "date": "27/02/20",
+        "description": "Golden Sun Bakery",
+        "amount": 8.0,
+        "balance": 298,
+        "type": "Electronic",
+        "category": "Food",
+        "note": "Lorem ipsum"
+      },
+      {
+        "date": "27/02/20",
+        "description": "Golden Sun Bakery",
+        "amount": 8.0,
+        "balance": 298,
+        "type": "Electronic",
+        "category": "Food",
+        "note": "Lorem ipsum"
+      },
+      {
+        "date": "27/02/20",
+        "description": "Golden Sun Bakery",
+        "amount": 8.0,
+        "balance": 298,
+        "type": "Electronic",
+        "category": "Food",
+        "note": "Lorem ipsum"
+      },
+      {
+        "date": "27/02/20",
+        "description": "Golden Sun Bakery",
+        "amount": 8.0,
+        "balance": 298,
+        "type": "Electronic",
+        "category": "Food",
+        "note": "Lorem ipsum"
+      },
+      {
+        "date": "27/02/20",
+        "description": "Golden Sun Bakery",
+        "amount": 8.0,
+        "balance": 298,
+        "type": "Electronic",
+        "category": "Food",
+        "note": "Lorem ipsum"
+      }
+    ]
+  },
+  {
+    "id": "1",
+    "name": "Argent Bank Savings (x6712)",
+    "type": "Savings",
+    "balance": 10928.42,
+    "transactions": [
+      {
+        "date": "27/02/20",
+        "description": "Golden Sun Bakery",
+        "amount": 8.0,
+        "balance": 298,
+        "type": "Electronic",
+        "category": "Food",
+        "note": "Lorem ipsum"
+      },
+      {
+        "date": "27/02/20",
+        "description": "Golden Sun Bakery",
+        "amount": 8.0,
+        "balance": 298,
+        "type": "Electronic",
+        "category": "Food",
+        "note": "Lorem ipsum"
+      },
+      {
+        "date": "27/02/20",
+        "description": "Golden Sun Bakery",
+        "amount": 8.0,
+        "balance": 298,
+        "type": "Electronic",
+        "category": "Food",
+        "note": "Lorem ipsum"
+      },
+      {
+        "date": "27/02/20",
+        "description": "Golden Sun Bakery",
+        "amount": 8.0,
+        "balance": 298,
+        "type": "Electronic",
+        "category": "Food",
+        "note": "Lorem ipsum"
+      },
+      {
+        "date": "27/02/20",
+        "description": "Golden Sun Bakery",
+        "amount": 8.0,
+        "balance": 298,
+        "type": "Electronic",
+        "category": "Food",
+        "note": "Lorem ipsum"
+      },
+      {
+        "date": "27/02/20",
+        "description": "Golden Sun Bakery",
+        "amount": 8.0,
+        "balance": 298,
+        "type": "Electronic",
+        "category": "Food",
+        "note": "Lorem ipsum"
+      },
+      {
+        "date": "27/02/20",
+        "description": "Golden Sun Bakery",
+        "amount": 8.0,
+        "balance": 298,
+        "type": "Electronic",
+        "category": "Food",
+        "note": "Lorem ipsum"
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "name": "Argent Bank Credit Card (x8349)",
+    "type": "Credit",
+    "balance": 184.3,
+    "transactions": [
+      {
+        "date": "27/02/20",
+        "description": "Golden Sun Bakery",
+        "amount": 8.0,
+        "balance": 298,
+        "type": "Electronic",
+        "category": "Food",
+        "note": "Lorem ipsum"
+      },
+      {
+        "date": "27/02/20",
+        "description": "Golden Sun Bakery",
+        "amount": 8.0,
+        "balance": 298,
+        "type": "Electronic",
+        "category": "Food",
+        "note": "Lorem ipsum"
+      },
+      {
+        "date": "27/02/20",
+        "description": "Golden Sun Bakery",
+        "amount": 8.0,
+        "balance": 298,
+        "type": "Electronic",
+        "category": "Food",
+        "note": "Lorem ipsum"
+      },
+      {
+        "date": "27/02/20",
+        "description": "Golden Sun Bakery",
+        "amount": 8.0,
+        "balance": 298,
+        "type": "Electronic",
+        "category": "Food",
+        "note": "Lorem ipsum"
+      },
+      {
+        "date": "27/02/20",
+        "description": "Golden Sun Bakery",
+        "amount": 8.0,
+        "balance": 298,
+        "type": "Electronic",
+        "category": "Food",
+        "note": "Lorem ipsum"
+      },
+      {
+        "date": "27/02/20",
+        "description": "Golden Sun Bakery",
+        "amount": 8.0,
+        "balance": 298,
+        "type": "Electronic",
+        "category": "Food",
+        "note": "Lorem ipsum"
+      },
+      {
+        "date": "27/02/20",
+        "description": "Golden Sun Bakery",
+        "amount": 8.0,
+        "balance": 298,
+        "type": "Electronic",
+        "category": "Food",
+        "note": "Lorem ipsum"
+      }
+    ]
+  }
+]

@@ -38,6 +38,14 @@ body {
   white-space: nowrap !important; /* 3 */
 }
 
+button {
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
 .main-nav {
   display: flex;
   justify-content: space-between;
@@ -45,8 +53,10 @@ body {
   padding: 5px 20px;
 }
 
-.main-nav a {
+.main-nav a,
+.main-nav button {
   font-weight: bold;
+  font-size: 16px;
   color: #2c3e50;
 }
 
@@ -233,6 +243,13 @@ body {
   margin-bottom: 2rem;
 }
 
+.account-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .account-amount {
   margin: 0;
   font-size: 2.5rem;
@@ -253,6 +270,101 @@ body {
 .account-content-wrapper {
   width: 100%;
   flex: 1;
+}
+
+.transactions-wrapper {
+  overflow: hidden;
+  width: 100%;
+}
+
+.transactions-wrapper-open {
+  width: 100%;
+}
+
+.transactions-content {
+  transition: max-height 0.5s cubic-bezier(0.27, 1, 0.65, 0.73);
+  max-height: 0;
+}
+
+.transactions-content-open {
+  max-height: 920px;
+  padding-top: 10px;
+}
+
+.transactions-list p {
+  margin: 0;
+}
+
+.transactions-header {
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  justify-content: space-around;
+}
+
+.transaction-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #00bc77;
+  color: white;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.transaction-title {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.arrow {
+  cursor: pointer;
+  width: 24px;
+  height: 14px;
+}
+
+.arrow-in {
+  transition: transform 0.5s ease-in-out;
+  transform: rotate(-180deg);
+}
+
+.arrow-out {
+  transition: transform 0.5s ease-in-out;
+  transform: rotate(0deg);
+}
+
+.transaction-wrapper {
+  overflow: hidden;
+  transition: height 0.5s ease-in-out;
+  width: 100%;
+}
+
+.transaction-content {
+  display: flex;
+  flex-direction: row;
+  padding-top: 10px;
+}
+
+.transaction-labels {
+  margin-right: 20px;
+}
+
+.transaction-details {
+  font-weight: 500;
+}
+
+.transaction-details p {
+  display: flex;
+}
+
+.pen {
+  margin-left: 5px;
+  cursor: pointer;
 }
 
 .edit-button {
@@ -282,6 +394,10 @@ body {
 
 @media (min-width: 720px) {
   .account {
+    flex-direction: column;
+  }
+
+  .account-container {
     flex-direction: row;
   }
 
