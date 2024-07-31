@@ -6,16 +6,18 @@ const initialState = {
   firstName: "",
   lastName: "",
   userName: "",
+  isAuthenticated: false,
 };
 
 export const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
-    userReducer: {},
+    firstReducer: () => {},
+    secondReducer: () => {},
   },
 });
 
-export const { userReducer } = userSlice.actions;
+export const { firstReducer, secondReducer } = userSlice.actions;
 
 export default userSlice.reducer;

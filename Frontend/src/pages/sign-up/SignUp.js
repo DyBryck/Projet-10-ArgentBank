@@ -8,8 +8,14 @@ const SignUp = () => {
   const [userName, setUserName] = useState("");
 
   const signUpUser = (e) => {
-    const body = { email, password, firstName, lastName, userName };
     e.preventDefault();
+
+    if (!email || !password || !firstName || !lastName || !userName) {
+      alert("Tous les champs doivent être remplis.");
+      return;
+    }
+
+    const body = { email, password, firstName, lastName, userName };
     fetch("http://localhost:3001/api/v1/user/signup", {
       method: "POST",
       headers: {

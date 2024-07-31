@@ -12,15 +12,21 @@ import { Home, SignIn, SignUp, User } from "../pages/index";
 const Navigation = () => {
   const location = useLocation();
   const isHomePage = location.pathname === "/";
+  const isAuthenticated = localStorage.getItem("token");
 
   return (
     <main className={isHomePage ? "" : "main bg-dark"}>
       <Routes>
-        <Route exact path="/" element={<Home />} />
-        <Route exact path="/sign-in" element={<SignIn />} />
-        <Route exact path="/sign-up" element={<SignUp />} />
-        <Route exact path="/user" element={<User />} />
-        <Route exact path="/*" element={<Navigate replace to="/" />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/sign-in" element={<SignIn />} />
+        <Route path="/sign-up" element={<SignUp />} />
+        <Route
+          path="/user"
+          element={
+            isAuthenticated ? <User /> : <Navigate replace to="/sign-in" />
+          }
+        />
+        <Route path="/*" element={<Navigate replace to="/" />} />
       </Routes>
     </main>
   );
