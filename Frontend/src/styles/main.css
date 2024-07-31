@@ -84,7 +84,7 @@ button {
 }
 
 .hero {
-  background-image: url("../images/bank-tree.jpeg");
+  background-image: url("../images/bank-tree.webp");
   background-position: 0 -50px;
   background-size: cover;
   background-repeat: no-repeat;
@@ -228,6 +228,54 @@ button {
   padding: 0;
 }
 
+.user-header {
+  color: #fff;
+  margin-bottom: 2rem;
+}
+
+.edit-button {
+  border-color: #00bc77;
+  background-color: #00bc77;
+  color: #fff;
+  font-weight: bold;
+  padding: 10px;
+}
+
+.user-editor-wrapper {
+  overflow: hidden;
+}
+
+.user-editor-content {
+  max-height: 0;
+  transition: max-height 0.5s ease-in-out;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+.user-editor-content-open {
+  display: flex;
+  max-height: 200px;
+  justify-content: center;
+  padding-top: 10px;
+}
+
+.user-edit-form {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-edit-buttons {
+  margin-top: 10px;
+}
+
+.form-button {
+  margin-right: 10px;
+}
+
 .account {
   display: flex;
   justify-content: space-between;
@@ -296,10 +344,10 @@ button {
 }
 
 .transactions-header {
-  display: flex;
-  flex-direction: row;
-  width: 90%;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr 1fr 0.3fr;
+  align-items: center;
+  justify-items: center;
 }
 
 .transaction-container {
@@ -316,10 +364,10 @@ button {
 
 .transaction-title {
   width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr 1fr 0.3fr;
   align-items: center;
+  justify-items: center;
 }
 
 .arrow {
@@ -340,13 +388,22 @@ button {
 
 .transaction-wrapper {
   overflow: hidden;
-  transition: height 0.5s ease-in-out;
   width: 100%;
 }
 
 .transaction-content {
   display: flex;
   flex-direction: row;
+  transition: max-height 0.5s ease-in-out;
+  max-height: 0;
+  overflow: hidden;
+}
+
+.transaction-content-open {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  max-height: 76px;
   padding-top: 10px;
 }
 
@@ -365,19 +422,6 @@ button {
 .pen {
   margin-left: 5px;
   cursor: pointer;
-}
-
-.edit-button {
-  border-color: #00bc77;
-  background-color: #00bc77;
-  color: #fff;
-  font-weight: bold;
-  padding: 10px;
-}
-
-.user-header {
-  color: #fff;
-  margin-bottom: 2rem;
 }
 
 .transaction-button {

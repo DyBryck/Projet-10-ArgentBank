@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 import Footer from "../components/footer/Footer";
 import Header from "../components/header/Header";
-import { Home, SignIn, User } from "../pages/index";
+import { Home, SignIn, SignUp, User } from "../pages/index";
 
 const Navigation = () => {
   const location = useLocation();
@@ -18,6 +18,7 @@ const Navigation = () => {
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/sign-in" element={<SignIn />} />
+        <Route exact path="/sign-up" element={<SignUp />} />
         <Route exact path="/user" element={<User />} />
         <Route exact path="/*" element={<Navigate replace to="/" />} />
       </Routes>

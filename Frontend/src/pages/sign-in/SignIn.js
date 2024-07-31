@@ -1,16 +1,37 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { login } from "../../redux/userSlice";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const dispatch = useDispatch();
 
   const logInUser = (e) => {
     const body = { email, password };
     e.preventDefault();
-    dispatch(login(body));
+    fetch("http://localhost:3001/api/v1/user/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
+    })
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Erreur lors de la connexion : " + res.statusText);
+        }
+        return res.json();
+      })
+      .then((data) => {
+        const token = data.body.token;
+        if (!token) {
+          throw new Error("Token manquant dans la réponse");
+        }
+        localStorage.setItem("token", token);
+        window.location.href = "/user";
+      })
+      .catch((error) => {
+        console.error("Erreur lors de la tentative de connexion :", error);
+        alert("Une erreur s'est produite lors de la tentative de connexion.");
+      });
   };
 
   return (

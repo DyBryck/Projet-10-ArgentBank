@@ -1,17 +1,17 @@
 import React from "react";
 import FeatureItem from "../../components/feature-item/FeatureItem";
 import Hero from "../../components/hero/Hero";
-import iconChat from "../../images/icon-chat.png";
-import iconMoney from "../../images/icon-money.png";
-import iconSecurity from "../../images/icon-security.png";
+import iconChat from "../../images/icon-chat.webp";
+import iconMoney from "../../images/icon-money.webp";
+import iconSecurity from "../../images/icon-security.webp";
 
 const Home = () => {
   return (
     <>
       <Hero>
-        <p className="subtitle">No fees.</p>
-        <p className="subtitle">No minimum deposit.</p>
-        <p className="subtitle">High interest rates.</p>
+        <h2 className="subtitle">No fees.</h2>
+        <h2 className="subtitle">No minimum deposit.</h2>
+        <h2 className="subtitle">High interest rates.</h2>
         <p className="text">Open a savings account with Argent Bank today!</p>
       </Hero>
       <section className="features">

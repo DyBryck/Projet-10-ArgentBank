@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState } from "react";
-import arrowUp from "../../images/arrow_up.png";
+import React, { useState } from "react";
+import arrowUp from "../../images/arrow_up.webp";
 import pen from "../../images/pen.svg";
 
 const Transaction = ({ transaction }) => {
@@ -7,16 +7,6 @@ const Transaction = ({ transaction }) => {
   const toggleCollapse = () => {
     setIsOpen((prevState) => !prevState);
   };
-
-  const innerContentRef = useRef(null);
-  const [height, setHeight] = useState(0);
-  useEffect(() => {
-    if (isOpen) {
-      setHeight(innerContentRef.current.scrollHeight);
-    } else {
-      setHeight(0);
-    }
-  }, [isOpen]);
 
   const formattedAmount = transaction.amount.toLocaleString("en-US", {
     minimumFractionDigits: 2,
@@ -41,8 +31,12 @@ const Transaction = ({ transaction }) => {
           onClick={toggleCollapse}
         />
       </div>
-      <div className="transaction-wrapper" style={{ height: `${height}px` }}>
-        <div className="transaction-content" ref={innerContentRef}>
+      <div className="transaction-wrapper">
+        <div
+          className={`transaction-content ${
+            isOpen ? "transaction-content-open" : ""
+          }`}
+        >
           <div className="transaction-labels">
             <p>Transaction type</p>
             <p>Category</p>
@@ -66,3 +60,5 @@ const Transaction = ({ transaction }) => {
 };
 
 export default Transaction;
+
+// 76PX

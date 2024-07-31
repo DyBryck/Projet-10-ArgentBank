@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from "../../images/argentBankLogo.png";
+import logo from "../../images/argentBankLogo.webp";
 import "../../styles/main.css";
 
 const Header = () => {
@@ -8,7 +8,7 @@ const Header = () => {
 
   const signOut = () => {
     localStorage.removeItem("token");
-    window.location.href = "/sign-in";
+    window.location.href = "/";
   };
 
   return (
