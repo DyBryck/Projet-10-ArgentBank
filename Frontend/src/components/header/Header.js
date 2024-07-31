@@ -1,14 +1,20 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../../images/argentBankLogo.webp";
+import { logout } from "../../redux/userSlice";
 import "../../styles/main.css";
 
 const Header = () => {
-  const isSignIn = localStorage.getItem("token");
+  const isSignIn = useSelector((state) => state.user.isAuthenticated);
+  const userName = useSelector((state) => state.user.userName);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const signOut = () => {
     localStorage.removeItem("token");
-    window.location.href = "/";
+    dispatch(logout());
+    navigate("/");
   };
 
   return (
@@ -30,7 +36,8 @@ const Header = () => {
                 className="main-nav-item"
                 href="./sign-in.html"
               >
-                <i className="fa fa-user-circle"></i> User Name
+                <i className="fa fa-user-circle"></i>
+                {userName}
               </Link>
               <button className="main-nav-item" onClick={signOut}>
                 <i className="fa fa-sign-out"></i>

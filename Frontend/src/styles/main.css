@@ -53,6 +53,10 @@ button {
   padding: 5px 20px;
 }
 
+.main-nav .fa {
+  margin-right: 3px;
+}
+
 .main-nav a,
 .main-nav button {
   font-weight: bold;

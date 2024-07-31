@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { signUp } from "../../redux/userSlice";
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
@@ -6,6 +9,9 @@ const SignUp = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [userName, setUserName] = useState("");
+
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const signUpUser = (e) => {
     e.preventDefault();
@@ -24,8 +30,9 @@ const SignUp = () => {
       body: JSON.stringify(body),
     }).then((res) => {
       if (res.ok) {
+        dispatch(signUp(body));
         alert("Successfully registered");
-        window.location.href = "/sign-in";
+        navigate("/user");
       }
     });
   };
@@ -50,7 +57,7 @@ const SignUp = () => {
           <input
             type="password"
             id="password"
-            autoComplete="current-password"
+            autoComplete="new-password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />

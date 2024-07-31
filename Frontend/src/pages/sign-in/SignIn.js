@@ -1,9 +1,13 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import { login } from "../../redux/userSlice";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const logInUser = (e) => {
     const body = { email, password };
@@ -27,7 +31,8 @@ const SignIn = () => {
           throw new Error("Token manquant dans la réponse");
         }
         localStorage.setItem("token", token);
-        window.location.href = "/user";
+        dispatch(login(email));
+        navigate("/user");
       })
       .catch((error) => {
         console.error("Erreur lors de la tentative de connexion :", error);

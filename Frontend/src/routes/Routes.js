@@ -1,3 +1,4 @@
+import { useSelector } from "react-redux";
 import {
   BrowserRouter,
   Navigate,
@@ -12,7 +13,7 @@ import { Home, SignIn, SignUp, User } from "../pages/index";
 const Navigation = () => {
   const location = useLocation();
   const isHomePage = location.pathname === "/";
-  const isAuthenticated = localStorage.getItem("token");
+  const isAuthenticated = useSelector((state) => state.user.isAuthenticated); // localStorage.getItem("token");
 
   return (
     <main className={isHomePage ? "" : "main bg-dark"}>
@@ -22,11 +23,9 @@ const Navigation = () => {
         <Route path="/sign-up" element={<SignUp />} />
         <Route
           path="/user"
-          element={
-            isAuthenticated ? <User /> : <Navigate replace to="/sign-in" />
-          }
+          element={isAuthenticated ? <User /> : <Navigate to="/sign-in" />}
         />
-        <Route path="/*" element={<Navigate replace to="/" />} />
+        <Route path="/*" element={<Navigate to="/" />} />
       </Routes>
     </main>
   );

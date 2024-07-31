@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import EditName from "../edit-name/EditName";
 
-const UserHeader = ({ userName }) => {
+const UserHeader = () => {
   const [isOpen, setIsOpen] = useState(false);
   const toggleCollapse = () => {
     setIsOpen((prevState) => !prevState);
@@ -11,7 +12,7 @@ const UserHeader = ({ userName }) => {
       <h1>
         Welcome back
         <br />
-        {userName}!
+        {useSelector((state) => state.user.userName)}!
       </h1>
       <button className="edit-button" onClick={toggleCollapse}>
         Edit Name
