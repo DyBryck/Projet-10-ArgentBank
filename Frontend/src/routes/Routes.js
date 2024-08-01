@@ -13,7 +13,9 @@ import { Home, SignIn, SignUp, User } from "../pages/index";
 const Navigation = () => {
   const location = useLocation();
   const isHomePage = location.pathname === "/";
-  const isAuthenticated = useSelector((state) => state.user.isAuthenticated); // localStorage.getItem("token");
+  const isAuthenticated =
+    useSelector((state) => state.user.isAuthenticated) ||
+    localStorage.getItem("token");
 
   return (
     <main className={isHomePage ? "" : "main bg-dark"}>

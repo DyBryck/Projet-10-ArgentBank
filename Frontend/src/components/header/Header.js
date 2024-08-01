@@ -6,7 +6,9 @@ import { logout } from "../../redux/userSlice";
 import "../../styles/main.css";
 
 const Header = () => {
-  const isSignIn = useSelector((state) => state.user.isAuthenticated);
+  const isSignIn =
+    useSelector((state) => state.user.isAuthenticated) ||
+    localStorage.getItem("token");
   const userName = useSelector((state) => state.user.userName);
   const dispatch = useDispatch();
   const navigate = useNavigate();

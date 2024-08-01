@@ -6,12 +6,17 @@ import { login } from "../../redux/userSlice";
 const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [checked, setChecked] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const toggleCheck = () => {
+    setChecked((prevState) => !prevState);
+  };
+
   const logInUser = (e) => {
-    const body = { email, password };
     e.preventDefault();
+    const body = { email, password };
     fetch("http://localhost:3001/api/v1/user/login", {
       method: "POST",
       headers: {
@@ -30,8 +35,8 @@ const SignIn = () => {
         if (!token) {
           throw new Error("Token manquant dans la réponse");
         }
-        localStorage.setItem("token", token);
-        dispatch(login(email));
+        checked && localStorage.setItem("token", token);
+        dispatch(login(email, password));
         navigate("/user");
       })
       .catch((error) => {
@@ -66,7 +71,12 @@ const SignIn = () => {
           />
         </div>
         <div className="input-remember">
-          <input type="checkbox" id="remember-me" />
+          <input
+            checked={checked}
+            onChange={toggleCheck}
+            type="checkbox"
+            id="remember-me"
+          />
           <label htmlFor="remember-me">Remember me</label>
         </div>
         <button className="sign-in-button" type="submit">
