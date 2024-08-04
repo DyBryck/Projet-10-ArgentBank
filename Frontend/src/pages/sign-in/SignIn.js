@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
+import circleArrowRight from "../../images/circle-arrow-right.svg";
 import { login } from "../../redux/userSlice";
 
 const SignIn = () => {
@@ -51,11 +52,11 @@ const SignIn = () => {
       <h1>Sign In</h1>
       <form onSubmit={logInUser}>
         <div className="input-wrapper">
-          <label htmlFor="username">Username</label>
+          <label htmlFor="email">Email</label>
           <input
             type="text"
-            id="username"
-            autoComplete="username"
+            id="email"
+            autoComplete="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
@@ -85,10 +86,13 @@ const SignIn = () => {
           Sign In
         </button>
       </form>
-      <p>Not registered yet?</p>
-      <Link to={"/sign-up"} className="sign-up-link">
-        Join us
-      </Link>
+      <div className="register-section">
+        <p>Not registered yet?</p>
+        <Link to={"/sign-up"} className="sign-up-link">
+          <img src={circleArrowRight} alt="" />
+          Join us
+        </Link>
+      </div>
     </section>
   );
 };

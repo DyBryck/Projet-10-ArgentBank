@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import circleArrowRight from "../../images/circle-arrow-right.svg";
 import { signUp } from "../../redux/userSlice";
 
 const SignUp = () => {
@@ -101,6 +102,13 @@ const SignUp = () => {
           Sign Up
         </button>
       </form>
+      <div className="register-section">
+        <p>Already registered?</p>
+        <Link to={"/sign-in"} className="sign-up-link">
+          <img src={circleArrowRight} alt="" />
+          Sign In
+        </Link>
+      </div>
     </section>
   );
 };

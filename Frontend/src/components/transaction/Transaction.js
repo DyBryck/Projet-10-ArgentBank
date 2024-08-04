@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import arrowUp from "../../images/arrow_up.webp";
+import arrowUp from "../../images/circle-arrow-up.svg";
 import pen from "../../images/pen.svg";
 
 const Transaction = ({ transaction }) => {
