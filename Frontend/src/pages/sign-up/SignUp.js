@@ -50,6 +50,7 @@ const SignUp = () => {
             autoComplete="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            required
           />
         </div>
         <div className="input-wrapper">
@@ -60,6 +61,7 @@ const SignUp = () => {
             autoComplete="new-password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            required
           />
         </div>
         <div className="input-wrapper">
@@ -70,6 +72,7 @@ const SignUp = () => {
             autoComplete="given-name"
             value={firstName}
             onChange={(e) => setFirstName(e.target.value)}
+            required
           />
         </div>
         <div className="input-wrapper">
@@ -80,6 +83,7 @@ const SignUp = () => {
             autoComplete="family-name"
             value={lastName}
             onChange={(e) => setLastName(e.target.value)}
+            required
           />
         </div>
         <div className="input-wrapper">
@@ -90,6 +94,7 @@ const SignUp = () => {
             autoComplete="username"
             value={userName}
             onChange={(e) => setUserName(e.target.value)}
+            required
           />
         </div>
         <button className="sign-in-button" type="submit">

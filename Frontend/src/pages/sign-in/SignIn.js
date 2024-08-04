@@ -58,6 +58,7 @@ const SignIn = () => {
             autoComplete="username"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            required
           />
         </div>
         <div className="input-wrapper">
@@ -68,6 +69,7 @@ const SignIn = () => {
             autoComplete="current-password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            required
           />
         </div>
         <div className="input-remember">

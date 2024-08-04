@@ -33,11 +33,7 @@ const Header = () => {
         <div>
           {isSignIn ? (
             <>
-              <Link
-                to={"/user"}
-                className="main-nav-item"
-                href="./sign-in.html"
-              >
+              <Link to={"/user"} className="main-nav-item">
                 <i className="fa fa-user-circle"></i>
                 {userName}
               </Link>
@@ -47,11 +43,7 @@ const Header = () => {
               </button>
             </>
           ) : (
-            <Link
-              to={"/sign-in"}
-              className="main-nav-item"
-              href="./sign-in.html"
-            >
+            <Link to={"/sign-in"} className="main-nav-item">
               <i className="fa fa-user-circle"></i> Sign In
             </Link>
           )}

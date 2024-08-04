@@ -19,6 +19,7 @@ const EditName = ({ cancel }) => {
     /* fetch(http://localhost:3001/api/v1/user/profile
 ) METHOD PUT */
     dispatch(editName(body));
+    alert("Successfully modified profile, hello " + userName + "! 👋");
     cancel();
   };
   return (
@@ -55,7 +56,7 @@ const EditName = ({ cancel }) => {
         <button type="submit" className="edit-button form-button">
           Save
         </button>
-        <button className="edit-button" onClick={cancel}>
+        <button type="button" className="edit-button" onClick={cancel}>
           Cancel
         </button>
       </div>
