@@ -6,22 +6,41 @@ const EditName = ({ cancel }) => {
   const [userName, setUserName] = useState(
     useSelector((state) => state.user.userName)
   );
-  const [firstName, setFirstName] = useState(
-    useSelector((state) => state.user.firstName)
-  );
-  const [lastName, setLastName] = useState(
-    useSelector((state) => state.user.lastName)
-  );
+  const { firstName } = useSelector((state) => state.user);
+  const { lastName } = useSelector((state) => state.user);
+  const { token } = useSelector((state) => state.user);
+
   const dispatch = useDispatch();
   const handleSubmit = (e) => {
     e.preventDefault();
-    const body = { userName, firstName, lastName };
-    /* fetch(http://localhost:3001/api/v1/user/profile
-) METHOD PUT */
-    dispatch(editName(body));
-    alert("Successfully modified profile, hello " + userName + "! 👋");
-    cancel();
+
+    const body = JSON.stringify({ userName });
+    fetch("http://localhost:3001/api/v1/user/profile", {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + token,
+      },
+      body: body,
+    })
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Erreur lors de la connexion : " + res.statusText);
+        }
+        return res.json();
+      })
+      .then((data) => {
+        dispatch(editName(data.body.userName));
+        alert(
+          "Successfully modified profile, hello " + data.body.userName + "! 👋"
+        );
+      });
   };
+
+  /*(dispatch(editName(body));
+      
+      cancel();)*/
+
   return (
     <form className="user-edit-form" onSubmit={handleSubmit}>
       <label htmlFor="username">User name:</label>
@@ -40,7 +59,7 @@ const EditName = ({ cancel }) => {
         id="firstname"
         type="text"
         value={firstName}
-        onChange={(e) => setFirstName(e.target.value)}
+        disabled
       ></input>
       <label autoComplete="family-name" htmlFor="lastname">
         Last name:
@@ -50,7 +69,7 @@ const EditName = ({ cancel }) => {
         id="lastname"
         type="text"
         value={lastName}
-        onChange={(e) => setLastName(e.target.value)}
+        disabled
       ></input>
       <div className="user-edit-buttons">
         <button type="submit" className="edit-button form-button">

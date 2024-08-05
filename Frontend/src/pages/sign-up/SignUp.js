@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import circleArrowRight from "../../images/circle-arrow-right.svg";
-import { signUp } from "../../redux/userSlice";
+import { loginUser } from "../../redux/actions";
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
@@ -10,17 +10,11 @@ const SignUp = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [userName, setUserName] = useState("");
-
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const signUpUser = (e) => {
     e.preventDefault();
-
-    if (!email || !password || !firstName || !lastName || !userName) {
-      alert("Tous les champs doivent être remplis.");
-      return;
-    }
 
     const body = { email, password, firstName, lastName, userName };
     fetch("http://localhost:3001/api/v1/user/signup", {
@@ -29,13 +23,20 @@ const SignUp = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(body),
-    }).then((res) => {
-      if (res.ok) {
-        dispatch(signUp(body));
-        alert("Successfully registered");
-        navigate("/user");
-      }
-    });
+    })
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Erreur lors de la connexion : " + res.statusText);
+        }
+        const loginBody = { email, password };
+        const loginChecked = false;
+        alert("Successfully registered.");
+        loginUser(loginBody, loginChecked, navigate, dispatch);
+      })
+      .catch((error) => {
+        console.error("Erreur lors de la tentative de connexion :", error);
+        alert("Une erreur s'est produite lors de la tentative de connexion.");
+      });
   };
 
   return (

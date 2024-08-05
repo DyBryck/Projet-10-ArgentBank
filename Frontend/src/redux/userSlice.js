@@ -2,11 +2,10 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   email: "",
-  password: "",
-  firstName: "Tony",
-  lastName: "Stark",
-  userName: "Iron",
-  isAuthenticated: false,
+  firstName: "",
+  lastName: "",
+  userName: "",
+  token: null,
 };
 
 export const userSlice = createSlice({
@@ -15,24 +14,23 @@ export const userSlice = createSlice({
   reducers: {
     login: (state, action) => {
       state.email = action.payload.email;
-      state.password = action.payload.password;
-      state.isAuthenticated = true;
+      state.firstName = action.payload.firstName;
+      state.lastName = action.payload.lastName;
+      state.userName = action.payload.userName;
+      state.token = action.payload.token;
     },
     logout: () => {
       return initialState;
     },
     signUp: (state, action) => {
       state.email = action.payload.email;
-      state.password = action.payload.password;
       state.firstName = action.payload.firstName;
       state.lastName = action.payload.lastName;
       state.userName = action.payload.userName;
-      state.isAuthenticated = true;
+      state.token = action.payload.token;
     },
     editName: (state, action) => {
-      state.userName = action.payload.userName;
-      state.firstName = action.payload.firstName;
-      state.lastName = action.payload.lastName;
+      state.userName = action.payload;
     },
   },
 });

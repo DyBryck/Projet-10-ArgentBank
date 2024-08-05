@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import circleArrowRight from "../../images/circle-arrow-right.svg";
-import { login } from "../../redux/userSlice";
+import { loginUser } from "../../redux/actions";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
@@ -18,32 +18,7 @@ const SignIn = () => {
   const logInUser = (e) => {
     e.preventDefault();
     const body = { email, password };
-    fetch("http://localhost:3001/api/v1/user/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(body),
-    })
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error("Erreur lors de la connexion : " + res.statusText);
-        }
-        return res.json();
-      })
-      .then((data) => {
-        const token = data.body.token;
-        if (!token) {
-          throw new Error("Token manquant dans la réponse");
-        }
-        checked && localStorage.setItem("token", token);
-        dispatch(login(email, password));
-        navigate("/user");
-      })
-      .catch((error) => {
-        console.error("Erreur lors de la tentative de connexion :", error);
-        alert("Une erreur s'est produite lors de la tentative de connexion.");
-      });
+    loginUser(body, checked, navigate, dispatch);
   };
 
   return (

@@ -2,16 +2,15 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "../../images/argentBankLogo.webp";
+import houseIcon from "../../images/house.svg";
 import { logout } from "../../redux/userSlice";
 import "../../styles/main.css";
 
 const Header = () => {
   const location = useLocation();
   const isSignInPage = location.pathname === "/";
-  const isSignIn =
-    useSelector((state) => state.user.isAuthenticated) ||
-    localStorage.getItem("token");
-  const userName = useSelector((state) => state.user.userName);
+  const isSignIn = !!useSelector((state) => state.user.token);
+  const { userName } = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -49,7 +48,10 @@ const Header = () => {
             <i className="fa fa-user-circle"></i> Sign In
           </Link>
         ) : (
-          ""
+          <Link to={"/"} className="main-nav-item house">
+            <img src={houseIcon} alt="" />
+            Home
+          </Link>
         )}
       </nav>
     </header>
