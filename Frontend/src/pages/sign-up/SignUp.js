@@ -24,9 +24,12 @@ const SignUp = () => {
       },
       body: JSON.stringify(body),
     })
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error("Erreur lors de la connexion : " + res.statusText);
+      .then((response) => {
+        console.log(response);
+        if (!response.ok) {
+          throw new Error(
+            "Erreur lors de la connexion : " + response.statusText
+          );
         }
         const loginBody = { email, password };
         const loginChecked = false;
