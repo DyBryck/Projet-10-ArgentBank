@@ -31,15 +31,10 @@ const EditName = ({ cancel }) => {
       })
       .then((data) => {
         dispatch(editName(data.body.userName));
-        alert(
-          "Successfully modified profile, hello " + data.body.userName + "! 👋"
-        );
+        alert("Successfully modified profile, hello " + userName + "! 👋");
+        cancel();
       });
   };
-
-  /*(dispatch(editName(body));
-      
-      cancel();)*/
 
   return (
     <form className="user-edit-form" onSubmit={handleSubmit}>

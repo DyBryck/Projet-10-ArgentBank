@@ -285,22 +285,26 @@ button {
 }
 
 .user-editor-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-editor-content-wrapper {
+  height: 0;
   overflow: hidden;
+  transition: height 0.5s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .user-editor-content {
-  max-height: 0;
-  transition: max-height 0.5s ease-in-out;
-  overflow: hidden;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-}
-
-.user-editor-content-open {
-  display: flex;
-  max-height: 200px;
-  justify-content: center;
-  padding-top: 10px;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
 }
 
 .user-edit-form {
