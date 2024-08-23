@@ -24,3 +24,5 @@ yarn-error.log*
 
 /Backend/node_modules
 /Frontend/node_modules
+Backend/.vscode/settings.json
+Frontend/.vscode/settings.json
