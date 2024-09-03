@@ -56,10 +56,9 @@ const EditName = ({ cancel }) => {
         value={firstName}
         disabled
       ></input>
-      <label autoComplete="family-name" htmlFor="lastname">
-        Last name:
-      </label>
+      <label htmlFor="lastname">Last name:</label>
       <input
+        autoComplete="family-name"
         name="lastname"
         id="lastname"
         type="text"

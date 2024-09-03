@@ -183,7 +183,7 @@ paths:
           description: Invalid Fields
         "500":
           description: Internal Server Error
-  /bank/{transactionId}/category:
+  /bank/{bankAccountId}/{transactionId}/category:
     put:
       security:
         - Bearer: []
@@ -198,9 +198,15 @@ paths:
           required: true
           type: "integer"
           format: "int64"
+        - name: "bankAccountId"
+          in: "path"
+          description: "ID of bank account"
+          required: true
+          type: "integer"
+          format: "int64"
         - in: body
           name: body
-          description: Update category transaction
+          description: Update transaction details
           required: true
           schema:
             type: object
@@ -208,11 +214,14 @@ paths:
               category:
                 type: string
                 example: "Food"
+              note:
+                type: string
+                example: "Lorem"
       #produces:
       # - application/json
       responses:
         "200":
-          description: Modified transaction category successully
+          description: Modified transaction details successully
           schema:
             type: array
             items:
@@ -224,51 +233,6 @@ paths:
                 category:
                   type: string
                   example: "Food"
-        "400":
-          description: Invalid Fields
-        "500":
-          description: Internal Server Error
-  /bank/{transactionId}/note:
-    put:
-      security:
-        - Bearer: []
-      tags:
-        - Bank Module
-      summary: User Bank Account Transactions API
-      description: API for fetching a user bank account transactions list
-      parameters:
-        - name: "transactionId"
-          in: "path"
-          description: "ID of transaction"
-          required: true
-          type: "integer"
-          format: "int64"
-        - in: body
-          name: body
-          description: Update note transaction
-          required: true
-          schema:
-            type: object
-            properties:
-              note:
-                type: string
-                example: "Lorem ipsum"
-      #produces:
-      # - application/json
-      responses:
-        "200":
-          description: Modified transaction category successully
-          schema:
-            type: array
-            items:
-              type: object
-              properties:
-                transactionId:
-                  type: string
-                  example: "1"
-                note:
-                  type: string
-                  example: "Lorem ipsum"
         "400":
           description: Invalid Fields
         "500":

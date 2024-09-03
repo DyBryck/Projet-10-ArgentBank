@@ -20,6 +20,7 @@ export const loginUser = (body, checked, navigate, dispatch) => {
         throw new Error("Token manquant dans la réponse");
       }
       getUser(token, checked, navigate, dispatch);
+      alert("Successfully connected");
     })
     .catch((error) => {
       console.error("Erreur lors de la tentative de connexion :", error);
