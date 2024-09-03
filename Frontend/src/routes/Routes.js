@@ -25,7 +25,7 @@ const Navigation = () => {
     if (tokenFromStorage) {
       getUser(tokenFromStorage, true, navigate, dispatch);
     }
-  }, [dispatch, navigate]);
+  }, []);
 
   return (
     <main className={isHomePage ? "" : "main bg-dark"}>

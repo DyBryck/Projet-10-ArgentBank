@@ -22,13 +22,6 @@ export const userSlice = createSlice({
     logout: () => {
       return initialState;
     },
-    signUp: (state, action) => {
-      state.email = action.payload.email;
-      state.firstName = action.payload.firstName;
-      state.lastName = action.payload.lastName;
-      state.userName = action.payload.userName;
-      state.token = action.payload.token;
-    },
     editName: (state, action) => {
       state.userName = action.payload;
     },

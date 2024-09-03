@@ -6,11 +6,12 @@ const EditName = ({ cancel }) => {
   const [userName, setUserName] = useState(
     useSelector((state) => state.user.userName)
   );
+
   const { firstName } = useSelector((state) => state.user);
   const { lastName } = useSelector((state) => state.user);
   const { token } = useSelector((state) => state.user);
-
   const dispatch = useDispatch();
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -31,7 +32,7 @@ const EditName = ({ cancel }) => {
       })
       .then((data) => {
         dispatch(editName(data.body.userName));
-        alert("Successfully modified profile, hello " + userName + "! 👋");
+        alert("Successfully modified profile, hello " + userName + ".");
         cancel();
       });
   };
