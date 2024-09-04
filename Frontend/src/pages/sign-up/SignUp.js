@@ -31,9 +31,10 @@ const SignUp = () => {
             "Erreur lors de la connexion : " + response.statusText
           );
         }
+        alert("Successfully registered.");
+
         const loginBody = { email, password };
         const loginChecked = false;
-        alert("Successfully registered.");
         loginUser(loginBody, loginChecked, navigate, dispatch);
       })
       .catch((error) => {
