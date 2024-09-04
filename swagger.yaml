@@ -183,24 +183,24 @@ paths:
           description: Invalid Fields
         "500":
           description: Internal Server Error
-  /bank/{bankAccountId}/{transactionId}/category:
+  /bank/{bankAccountId}/{transactionId}/details:
     put:
       security:
         - Bearer: []
       tags:
         - Bank Module
       summary: User Bank Account Transactions API
-      description: API for fetching a user bank account transactions list
+      description: API for editing a transaction category and/or note
       parameters:
-        - name: "transactionId"
-          in: "path"
-          description: "ID of transaction"
-          required: true
-          type: "integer"
-          format: "int64"
         - name: "bankAccountId"
           in: "path"
           description: "ID of bank account"
+          required: true
+          type: "integer"
+          format: "int64"
+        - name: "transactionId"
+          in: "path"
+          description: "ID of transaction"
           required: true
           type: "integer"
           format: "int64"
