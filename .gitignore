@@ -22,7 +22,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-/Backend/node_modules
+/Backend
 /Frontend/node_modules
 Backend/.vscode/settings.json
 Frontend/.vscode/settings.json
