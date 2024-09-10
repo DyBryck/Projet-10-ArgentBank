@@ -1,12 +1,24 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import arrowUp from "../../images/circle-arrow-up.svg";
 import pen from "../../images/pen.svg";
 
 const Transaction = ({ transaction }) => {
   const [isOpen, setIsOpen] = useState(false);
+
   const toggleCollapse = () => {
     setIsOpen((prevState) => !prevState);
   };
+
+  const innerContentRef = useRef(null);
+  const [height, setHeight] = useState(0);
+
+  useEffect(() => {
+    if (isOpen) {
+      setHeight(innerContentRef.current.scrollHeight);
+    } else {
+      setHeight(0);
+    }
+  }, [isOpen]);
 
   const formattedAmount = transaction.amount.toLocaleString("en-US", {
     minimumFractionDigits: 2,
@@ -27,16 +39,12 @@ const Transaction = ({ transaction }) => {
         <img
           src={arrowUp}
           alt=""
-          className={isOpen ? "arrow arrow-in" : "arrow arrow-out"}
+          className={isOpen ? "arrow arrow-out" : "arrow arrow-in"}
           onClick={toggleCollapse}
         />
       </div>
-      <div className="transaction-wrapper">
-        <div
-          className={`transaction-content ${
-            isOpen ? "transaction-content-open" : ""
-          }`}
-        >
+      <div className="transaction-wrapper" style={{ height: `${height}px` }}>
+        <div className="transaction-content" ref={innerContentRef}>
           <div className="transaction-labels">
             <p>Transaction type</p>
             <p>Category</p>
