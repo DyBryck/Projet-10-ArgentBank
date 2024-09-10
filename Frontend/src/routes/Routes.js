@@ -25,6 +25,7 @@ const Navigation = () => {
     if (tokenFromStorage) {
       getUser(tokenFromStorage, true, navigate, dispatch);
     }
+    //eslint-disable-next-line
   }, []);
 
   return (

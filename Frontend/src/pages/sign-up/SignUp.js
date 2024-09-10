@@ -13,34 +13,29 @@ const SignUp = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const signUpUser = (e) => {
+  const signUpUser = async (e) => {
     e.preventDefault();
 
     const body = { email, password, firstName, lastName, userName };
-    fetch("http://localhost:3001/api/v1/user/signup", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(body),
-    })
-      .then((response) => {
-        console.log(response);
-        if (!response.ok) {
-          throw new Error(
-            "Erreur lors de la connexion : " + response.statusText
-          );
-        }
-        alert("Successfully registered.");
 
-        const loginBody = { email, password };
-        const loginChecked = false;
-        loginUser(loginBody, loginChecked, navigate, dispatch);
-      })
-      .catch((error) => {
-        console.error("Erreur lors de la tentative de connexion :", error);
-        alert("Une erreur s'est produite lors de la tentative de connexion.");
+    try {
+      const response = await fetch("http://localhost:3001/api/v1/user/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(body),
       });
+      if (!response.ok) throw new Error("Erreur lors de la connexion");
+
+      alert("Successfully registered.");
+
+      const loginBody = { email, password };
+      const loginChecked = false;
+      loginUser(loginBody, loginChecked, navigate, dispatch);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
