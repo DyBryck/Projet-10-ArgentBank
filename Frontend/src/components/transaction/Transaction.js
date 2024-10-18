@@ -68,5 +68,3 @@ const Transaction = ({ transaction }) => {
 };
 
 export default Transaction;
-
-// 76PX
