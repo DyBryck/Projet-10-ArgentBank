@@ -29,7 +29,7 @@ export const loginUser = (body, checked, navigate, dispatch) => {
 
 export const getUser = (token, checked, navigate, dispatch) => {
   fetch("http://localhost:3001/api/v1/user/profile", {
-    method: "POST",
+    method: "GET",
     headers: {
       "Content-Type": "application/json",
       Authorization: "Bearer " + token,

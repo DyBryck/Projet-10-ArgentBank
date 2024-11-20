@@ -5,8 +5,8 @@ import circleArrowRight from "../../images/circle-arrow-right.svg";
 import { loginUser } from "../../redux/actions";
 
 const SignIn = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("tony@stark.com");
+  const [password, setPassword] = useState("password123");
   const [checked, setChecked] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
